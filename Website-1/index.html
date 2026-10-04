@@ -2,11 +2,11 @@
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>John &amp; Jane – Wedding Reception</title>
+<title>John & Jane – Wedding Reception</title>
 
 <!-- OG / WhatsApp preview -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="John &amp; Jane | Wedding Reception">
+<meta property="og:title" content="John & Jane | Wedding Reception">
 <meta property="og:description" content="Saturday, 14 February 2027 · 6 PM — The Grand Palace, City Center, New York.">
 <meta property="og:image" content="images/og-thumb.png">
 <meta property="og:url" content="">
@@ -20,28 +20,24 @@
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://pub-bc01cea1ca914ad8aba6c7541c55c7fb.r2.dev">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&amp;family=Cinzel:wght@400;500;600&amp;family=Amiri:wght@400;700&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Amiri:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 
 <style>
 :root{
-  --paper:#fdfdfc;        /* the landing photograph's own high sky */
+  --paper:#fdfdfc;       
   --paper2:#f4f2ee;
   --sheet:rgba(250,252,254,.90);
   --ink:#1f2429;
   --ink2:#586380;
   --navy:#1a1f24;
-  --gold:#d4af37;        /* deepened: this build's gate is WHITE, not dark */
+  --gold:#d4af37;      
   --gold2:#e5c77b;
   --blue:#a39f98;
   --blush:#dfb2bc;
-  /* cloud blue — the accent for everything after the landing.
-     --gold is the DEEP printed-card gold, because this build's gate is white
-     and gold has to carry type on it; --gold2 is the light gold and is only
-     ever used on the dark panels (hero Bismillah). */
-  --cloud:#a39f98;        /* mid cloud — on navy */
-  --cloud2:#cfccc5;       /* light cloud — on navy */
-  --cloud-deep:#7a7266;   /* deep cloud — small caps on the cloud ground (measured to clear 4.5:1) */
+  --cloud:#a39f98;        
+  --cloud2:#cfccc5;      
+  --cloud-deep:#7a7266;   
   --line:rgba(46,52,59,.18);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -49,11 +45,9 @@ html,body{margin:0;padding:0}
 body{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:0.02em;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 
-/* --- paper background (zero raster weight, standard #16) --- */
 #bg{position:fixed;inset:0;z-index:-1;background:
   radial-gradient(120% 90% at 50% 0%,#ffffff 0%,var(--paper) 46%,var(--paper2) 100%);}
-/* the same ink-cloud artwork as the dark panels, held high-key so the whole
-   page reads as one cloud-blue sky rather than clouds-on-panels over white */
+
 #bg::before{content:"";position:absolute;inset:0;
   background:url('images/bg-clouds-soft.jpg') center/cover no-repeat;
   opacity:.62;}
@@ -61,13 +55,6 @@ img{max-width:100%;display:block}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%232b3550' stroke-opacity='0.05' stroke-width='0.8'%3E%3Cpath d='M70 6 84 34 114 38 92 60 98 92 70 76 42 92 48 60 26 38 56 34Z'/%3E%3Ccircle cx='70' cy='70' r='46'/%3E%3C/g%3E%3C/svg%3E");
   background-size:190px 190px;}
 
-/* --- petals — Sachin_weds_amisha's effect: shape, volume, 3D flutter and the
-       exact 14-petal config copied verbatim. Only the MOTION is rebuilt: Sachin
-       animates `top`, which forces layout every frame ([[sachin-amisha-perf-debt]],
-       standard #17). Here the parent animates translateY (fall) and the child
-       animates translateX + rotate3d (flutter), so the two never fight over the
-       same transform track and the whole thing stays compositor-only.
-       Tones are the cloud-blue equivalents of his three rose gradients. --- */
 #petals{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden;perspective:600px}
 body:not(.entered) #petals{display:none}
 .petal-fall{position:absolute;top:0;left:var(--left,0);will-change:transform;
@@ -88,12 +75,7 @@ body:not(.entered) #petals{display:none}
 }
 @media(prefers-reduced-motion:reduce){#petals{display:none}}
 
-/* GATE - the couple's cloud photograph, full bleed.
-   The picture is almost pure white, so the type is INK ON A WHITE SCRIM.
-   The usual dark veil would have fought the photograph instead of sitting
-   inside it, and would have thrown away the one thing the image is: light.
-   The scrim only starts BELOW the rose heart, so nothing in the picture is
-   ever covered by type. */
+
 #gate{position:fixed;inset:0;z-index:80;overflow:hidden;background:var(--paper);
   transition:opacity 1s ease,visibility 1s}
 #gate.hide{opacity:0;visibility:hidden}
@@ -109,18 +91,14 @@ body:not(.entered) #petals{display:none}
     rgba(255,255,255,.10) 20%,rgba(255,255,255,.02) 30%,
     rgba(242,248,253,0) 48%,rgba(242,248,253,.55) 63%,
     rgba(242,248,253,.94) 78%,rgba(238,246,252,.99) 100%)}
-/* the printed card's hairline frame, carried onto the photograph */
+
 .gate-frame{position:absolute;inset:14px;z-index:2;pointer-events:none;
   border:1px solid rgba(169,128,60,.42)}
 .gate-top{position:absolute;top:0;left:0;right:0;z-index:3;padding:46px 30px 0;
   text-align:center;transition:opacity .5s ease}
 .gate-cta{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 26px 52px;
   text-align:center;background:transparent;transition:opacity .5s ease}
-/* Each text block carries its OWN soft scrim as well as the page veil. The
-   veil is keyed to the PORTRAIT crop; on a landscape screen `cover` pulls the
-   rose row straight up under the names, and the gold "with" measured 3.07:1
-   there (4.81:1 on a phone). These two glows put a known white under the type
-   whatever the crop does, so the numbers hold at every viewport. */
+
 .gate-top::before,.gate-cta::before{content:'';position:absolute;z-index:-1;
   left:0;right:0;pointer-events:none}
 .gate-top::before{top:-30px;height:190px;
@@ -138,11 +116,7 @@ body:not(.entered) #petals{display:none}
 .gate-amp{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;
   font-weight:400;font-size:19px;letter-spacing:.06em;color:var(--gold);
   text-transform:lowercase;margin:4px 0;text-indent:0}
-/* 19px is normal-size type, not large, so the gate gold has to clear 4.5:1 on
-   the white scrim wherever `cover` happens to put the roses. --gold #a9803c
-   measures 3.60:1 there and #8a6529 dipped to 4.28:1 against the darkest of
-   the landscape crop; #7d5b24 holds 5.0:1 at both. The rule and the Bismillah
-   keep --gold (both are large, and measure 3.3-3.4:1 against a 3:1 bar). */
+
 .gate-amp{color:#7d5b24}
 .gate-rule{width:52px;height:1px;background:var(--gold);opacity:.75;margin:20px auto 0}
 .gate-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;
@@ -160,13 +134,6 @@ body:not(.entered) #petals{display:none}
   .gate-rule{margin-top:14px}
 }
 
-/* ══════════════════════════════════════════════════════════════════
-   INSIDE THE INVITE — editorial layout modelled on VijithwedsLakshmi,
-   painted in this invite's own ivory / navy / gold palette so the page
-   and the video gate read as one object.
-   Type stays Cormorant Garamond (display + body) / Cinzel (caps) /
-   Amiri (Arabic) — the gate's faces, no new font request.
-   ══════════════════════════════════════════════════════════════════ */
 
 /* --- main --- */
 #main{opacity:0;transition:opacity 1s ease .2s}
@@ -176,12 +143,7 @@ body:not(.entered) #petals{display:none}
 #progressBar{position:fixed;top:0;left:0;height:2px;width:0;z-index:75;
   background:linear-gradient(90deg,var(--cloud-deep),var(--cloud2));transition:width .1s linear}
 
-/* --- nav --- */
-/* The nav is fixed, so it crosses BOTH the near-white sections (hero film,
-   countdown, celebration, wishes) and the ink ones. Its near-white type
-   measured 1.02:1 over the film - invisible. So it carries its OWN ink bar,
-   and it only appears once the guest has left the hero: over the film the
-   screen belongs to the couple, and the hero has its own scroll cue. */
+
 nav{position:fixed;top:0;left:0;right:0;z-index:65;padding:14px 26px;
   display:flex;justify-content:space-between;align-items:center;pointer-events:none;
   opacity:0;transition:opacity .45s ease}
@@ -198,13 +160,8 @@ body.nav-on nav a,body.nav-on nav .nav-logo{pointer-events:auto}
 .nav-links a:hover{opacity:1}
 body.admin-on nav{top:34px}
 
-/* ── HERO — split: ink panel + photo ── */
-/* ── HERO — the film, full screen, played ONCE ──
-   The clip ends on the same aerial frame as the landing photograph, so when it
-   stops the invitation is back where it opened. The names are held back until
-   that moment and then settle onto the held frame. --- */
 .hero{position:relative;overflow:hidden;
-  min-height:100vh;min-height:100svh;   /* svh so the mobile URL bar can't crop it */
+  min-height:100vh;min-height:100svh;   
   background:var(--navy)}
 .hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,
@@ -213,7 +170,6 @@ body.admin-on nav{top:34px}
     rgba(246,251,255,.86) 80%,rgba(244,250,255,.96) 100%)}
 .hero-frame{position:absolute;inset:14px;z-index:2;pointer-events:none;
   border:1px solid rgba(169,128,60,.36)}
-/* the type block: hidden until the film ends (or the backstop fires) */
 .hero-overlay{position:absolute;left:0;right:0;bottom:clamp(104px,17vh,168px);z-index:3;
   padding:0 26px;text-align:center;
   opacity:0;transform:translateY(16px);transition:opacity 1.2s ease,transform 1.2s ease}
@@ -230,14 +186,8 @@ body.admin-on nav{top:34px}
 .ho-date{font-family:'Cinzel',serif;font-size:clamp(9px,2.4vw,11px);letter-spacing:.34em;
   text-transform:uppercase;color:var(--cloud-deep);margin-top:18px;
   text-shadow:0 1px 8px rgba(255,255,255,.95)}
-
-/* ── VERSE BAND — what used to be the hero's left half, now its own panel
-      directly under the film. Its children keep the .hl-* prefix from that
-      lineage; they are simply this band's type. ── */
 .verse-panel{background:var(--navy);display:flex;flex-direction:column;justify-content:center;
   align-items:center;padding:clamp(56px,8vw,96px) clamp(26px,5vw,64px);position:relative;z-index:2}
-/* it used to be half a split, so it never needed a measure; full width it does
-   - otherwise the verse runs the whole 1280px and stops being readable */
 .verse-panel > *{width:100%;max-width:680px}
 .verse-panel::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;
   background:linear-gradient(to right,transparent,var(--cloud-deep),transparent)}
@@ -268,20 +218,8 @@ body.admin-on nav{top:34px}
   text-transform:uppercase;color:var(--cloud-deep);margin-top:6px}
 @keyframes fadeSlideR{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:translateX(0)}}
 
-/* The film itself. Muted + playsinline so it is decoration rather than a
-   player: no controls, no sound, nothing to tap. It does NOT loop - it runs
-   once and holds its last frame. `preload="none"` and the src is only attached
-   in revealInvitation(), so a guest who never opens the invite never downloads
-   1.1 MB of video (#17). */
 #heroVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   z-index:0;background:var(--navy)}
-/* the slideshow itself now lives in its own MOMENTS band, further down */
-/* NOTE - this invite has NO photographs of its own (owner, r4 then r5). The
-   gallery band went first, then the family photo in the Blessing section, and
-   with them every photo-slot rule: .photo-slide/.photo-main/.photo-nav/
-   .pn-dot/.photo-counter, then .gallery-ph/.img-slot-add/.img-delete-btn and
-   the whole .fbl-photo-* group. The couple's pictures are the film and the
-   landing photograph, and those are ADMIN-replaceable in their own right. */
 .scroll-ind{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:4;
   display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;
   opacity:0;animation:fadeIn 1s ease forwards 1.6s;-webkit-tap-highlight-color:transparent}
@@ -294,9 +232,6 @@ body.admin-on nav{top:34px}
 .scroll-arrow svg{width:15px;height:15px;display:block}
 @keyframes scrollNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 @media(prefers-reduced-motion:reduce){.scroll-arrow{animation:none}}
-/* The film has its own music, so it needs a way to be silenced. It sits at the
-   exact spot the BGM button takes over when the film ends, so the guest sees
-   one sound control, not two. */
 #filmSoundBtn{position:absolute;bottom:22px;right:18px;z-index:5;
   width:42px;height:42px;border-radius:50%;cursor:pointer;padding:0;
   display:flex;align-items:center;justify-content:center;
@@ -405,8 +340,6 @@ section{position:relative;z-index:2}
   background:rgba(255,255,255,.025)}
 .fam-block::after{content:'';position:absolute;bottom:-1px;left:20%;right:20%;height:1px;
   background:linear-gradient(90deg,transparent,var(--cloud-deep),transparent)}
-/* the NAME leads and the role sits under it (owner, r6), so the gap that used
-   to separate role-from-name now separates role-from-parents */
 .fb-role{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.34em;
   text-transform:uppercase;color:var(--cloud-deep);margin-bottom:20px}
 .fb-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(27px,3.8vw,38px);color:#fff;line-height:1.1;margin-bottom:11px;letter-spacing:.18em;text-transform:uppercase;text-indent:.18em}
@@ -555,13 +488,6 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
 .foot-social svg{width:17px;height:17px}
 .foot-social:hover,.foot-social:active{background:var(--cloud-deep);color:var(--navy);transform:translateY(-3px)}
 
-
-/* NOTE - this build ships NO decorative line art. The donor carried three
-   recoloured PNGs inherited from VijithwedsLakshmi's dance theme; they had
-   nothing to do with this couple, and this invite already has its own
-   artwork - the cloudscape below, ramped straight out of the landing
-   photograph. Two jpegs, 59 KB, and the page has one visual source. */
-
 /* ── REVEAL ON SCROLL ── */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s ease}
 .reveal.visible{opacity:1;transform:none}
@@ -569,23 +495,7 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
 .reveal-d2{transition-delay:.2s}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-/* ══════════════════════════════════════════════════════════════════
-   INK-CLOUD ARTWORK ON THE DARK PANELS
-   The same three background images VijithwedsLakshmi uses, hue-shifted
-   from their crimson to this invite's cloud blue (211°).
-   Declared LAST so it wins over each panel's own `background:var(--navy)`.
 
-   The artwork's mean luminance measured 119/255 — far brighter than the
-   #222c46 it covers — so a navy veil is composited OVER it in the same
-   background shorthand. Without that veil the white type on these panels
-   drops to unreadable contrast wherever a pale cloud passes behind it.
-   images/bg-clouds-deep.jpg is that same landing photograph ramped onto a
-   navy-to-cloud-blue scale: measured luminance 26-116, mean 89, so #fff
-   already clears 4.7:1 against its BRIGHTEST cloud before any veil. A light
-   .34 veil is enough here (the donor needed .60 over a far paler artwork).
-   Every glyph also carries a shadow in the artwork's OWN deepest tone
-   (#121b2e, sampled from the file) rather than a flat black.
-   ══════════════════════════════════════════════════════════════════ */
 .verse-panel,.editorial-band,.family-section,footer{
   background-color:var(--navy);
   background-image:linear-gradient(rgba(26,31,36,.6),rgba(26,31,36,.6)),url('images/bg-clouds-deep.jpg');
@@ -593,9 +503,6 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
   background-position:center;
   background-repeat:no-repeat;
 }
-/* an empty photo slot and the film panel behind a still-loading video are
-   navy too — let the clouds through a lighter veil, so neither reads as a
-   dead rectangle */
 #heroVideo{
   background-color:var(--navy);
   background-image:linear-gradient(rgba(26,31,36,.5),rgba(26,31,36,.5)),url('images/bg-clouds-deep.jpg');
@@ -606,16 +513,9 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
 .verse-panel *,.editorial-band *,.family-section *,footer *{
   text-shadow:0 1px 10px rgba(18,27,46,.60);
 }
-/* the couple's names carry the most weight — give them a deeper anchor */
+
 .ft-center,.fb-name{text-shadow:0 2px 16px rgba(14,22,38,.72);}
 
-/* The donor washed a florals jpeg behind the wishes and a silk jpeg behind
-   the blessing. Both are gone: the light sections here are TRANSLUCENT over
-   #bg, so what shows through them is the same cloudscape as everywhere else.
-   One sky, two files, no per-section wallpaper. */
-/* WISH FORM legibility over the cloudscape — transparent underline fields
-   with a 34%-alpha placeholder disappear into the pattern, so each field
-   gets a soft bed, a weightier placeholder and a visible underline. */
 .wfield{
   background:rgba(253,254,255,.82);
   border-bottom:2px solid rgba(95,127,163,.42);
@@ -624,13 +524,6 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
 }
 .wfield:focus{background:rgba(253,254,255,.95);border-bottom-color:var(--cloud-deep);}
 .wfield::placeholder{color:rgba(46,52,59,.62);font-style:italic;}
-
-/* ── TYPE LIFT ON THE INK-CLOUD PANELS ──
-   Measured, not eyeballed: against the artwork's BRIGHTEST cloud the labels
-   below sat at 1.44:1 (a dark-blue accent chosen for the light sections had
-   been applied to elements that actually live on the dark panels). Everything
-   here is re-keyed to near-white so it clears a readable ratio over the
-   palest part of the picture, which is the worst case. */
 .hl-eyebrow,.ds-lbl,.fb-role,.compliments-lbl,
 .family-section .s-label,.nav-logo,.nav-links a,
 .fc-inner,#pdfDownloadBtn,.foot-social,#cardDownloadBtn{color:#eaf2fc;}
@@ -716,7 +609,7 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
 @media print{
   .no-pdf,#adminBar,#bgmBar,#toast,#adminModal,#petals,#gate,nav{display:none!important}
   #heroVideo,#filmSoundBtn{display:none!important}
-  .hero{background-image:url('https://imagedelivery.net/pXU-KzWtO2cgM-XrR20TQg/9655bda8-ee3e-40aa-78d7-2e6f061eaa00/w900')!important;background-size:cover!important;
+  .hero{background-image:url('./images/bg-image.avif')!important;background-size:cover!important;
     background-position:center 30%!important}
   .hero-overlay{opacity:1!important;transform:none!important}
   #main{opacity:1!important}
@@ -725,11 +618,59 @@ footer{background:var(--navy);padding:56px 40px 96px;display:grid;
 body.pdf-capturing .no-pdf{display:none!important}
 body.pdf-capturing #petals,body.pdf-capturing #gate{display:none!important}
 body.pdf-capturing #heroVideo{display:none!important}
-body.pdf-capturing .hero{background-image:url('https://imagedelivery.net/pXU-KzWtO2cgM-XrR20TQg/9655bda8-ee3e-40aa-78d7-2e6f061eaa00/w900')!important;
+body.pdf-capturing .hero{background-image:url('./images/bg-image.avif')!important;
   background-size:cover!important;background-position:center 30%!important}
 body.pdf-capturing .hero-overlay{opacity:1!important;transform:none!important}
 body.pdf-capturing #main{opacity:1!important}
 body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
+<style>
+/* REDESIGN: Sage Green and Champagne Gold Theme */
+:root {
+  --paper: #f8f9f8 !important;       
+  --paper2: #eff1ef !important;
+  --sheet: rgba(248,249,248,0.9) !important;
+  --ink: #2b302d !important;
+  --ink2: #545c57 !important;
+  --navy: #233520 !important;
+  --gold: #c5a880 !important;      
+  --gold2: #e1ceb5 !important;
+  --cloud: #b3bcb6 !important;        
+  --cloud2: #d5dbd7 !important;      
+  --cloud-deep: #6d7c73 !important;   
+  --line: rgba(43,48,45,0.15) !important;
+}
+
+/* Override hardcoded dark/navy gradients and backgrounds */
+.open-btn, .udc-btn-primary, .wc-admin-save, .adm-btn.primary {
+  background: linear-gradient(135deg, #233520, #3a4d36) !important;
+}
+body.nav-on nav {
+  background: rgba(35, 53, 32, 0.86) !important;
+}
+.gate-amp, .ho-amp, .fbl-arabic {
+  color: #a3875f !important;
+}
+.verse-panel, .editorial-band, .family-section, footer, #heroVideo {
+  background-color: var(--navy) !important;
+  background-image: linear-gradient(rgba(35,53,32,0.7), rgba(35,53,32,0.7)), url('images/bg-clouds-deep.jpg') !important;
+}
+.fam-block {
+  background: rgba(35,53,32, 0.45) !important;
+}
+.wc-av {
+  background: linear-gradient(135deg, #3a4d36, #b3bcb6) !important;
+}
+.wfl-submit {
+  background: var(--navy) !important;
+}
+.wfl-submit:hover {
+  background: #3a4d36 !important;
+}
+/* Ensure the names are immediately visible on the hero section */
+.hero-overlay {
+  opacity: 1 !important;
+  transform: none !important;
+}
 </style>
 </head>
 <body>
@@ -745,7 +686,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
 
 <!-- GATE — the couple's own photograph: the rose heart above the clouds -->
 <div id="gate">
-  <img id="gateCover" alt="" aria-hidden="true" fetchpriority="high" decoding="async" src="https://imagedelivery.net/pXU-KzWtO2cgM-XrR20TQg/9aa4c918-902d-4d87-bcda-abdbeddd0a00/public">
+  <img id="gateCover" alt="" aria-hidden="true" fetchpriority="high" decoding="async" src="./images/gate.avif">
   <div class="gate-veil"></div>
   <div class="gate-frame"></div>
 
@@ -769,7 +710,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
 
 <!-- NAV -->
 <nav class="no-pdf">
-  <div class="nav-logo">J &amp; J</div>
+  <div class="nav-logo">J & J</div>
   <div class="nav-links">
     <a href="#details">Reception</a>
     <a href="#family">Family</a>
@@ -778,7 +719,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <video id="heroVideo" playsinline="" webkit-playsinline="" preload="none" poster="https://imagedelivery.net/pXU-KzWtO2cgM-XrR20TQg/9655bda8-ee3e-40aa-78d7-2e6f061eaa00/w900" aria-hidden="true" tabindex="-1"></video>
+  <video id="heroVideo" playsinline="" webkit-playsinline="" preload="none" poster="./images/bg-image.avif" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-veil"></div>
   <div class="hero-frame"></div>
 
@@ -891,11 +832,11 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
           </div>
         </div>
         <div class="udc-actions">
-          <a class="udc-btn udc-btn-primary" id="mapsLink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Grand%20Palace%2C%20New%20York">
+          <a class="udc-btn udc-btn-primary" id="mapsLink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The%20Grand%20Palace%2C%20New%20York">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14s-7-6.6-7-11a7 7 0 0 1 14 0c0 4.4-7 11-7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
             Venue Location
           </a>
-          <a class="udc-btn udc-btn-secondary" id="calLink" href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding%20Reception%20of%20John%20%26%20Jane&amp;dates=20270214T123000Z/20270214T160000Z&amp;location=The%20Grand%20Palace%2C%20New%20York&amp;details=Wedding%20reception%20of%20John%20%26%20Jane%20%E2%80%94%20Saturday%2C%2014%20February%202027%20at%206%3A00%20PM." target="_blank" rel="noopener">
+          <a class="udc-btn udc-btn-secondary" id="calLink" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding%20Reception%20of%20John%20%26%20Jane&dates=20270214T123000Z/20270214T160000Z&location=The%20Grand%20Palace%2C%20New%20York&details=Wedding%20reception%20of%20John%20%26%20Jane%20%E2%80%94%20Saturday%2C%2014%20February%202027%20at%206%3A00%20PM." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 9h18M8 3v4M16 3v4"></path></svg>
             Add to Calendar
           </a>
@@ -920,7 +861,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
         <div class="fb-role">Son of</div>
         <div class="fb-details">
           <strong>Mr. John Doe Sr.</strong><br>
-          &amp; <strong>Mrs. Jane Doe Sr.</strong>
+          & <strong>Mrs. Jane Doe Sr.</strong>
         </div>
         <div class="fb-addr">123 Elm Street,<br>Cityville</div>
       </div>
@@ -941,7 +882,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
         <div class="fb-role">Daughter of</div>
         <div class="fb-details">
           <strong>Mr. Richard Roe</strong><br>
-          &amp; <strong>Mrs. Roe</strong>
+          & <strong>Mrs. Roe</strong>
         </div>
         <div class="fb-addr">456 Oak Lane,<br>Townsville</div>
       </div>
@@ -949,7 +890,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
 
     <div class="compliments-strip reveal">
       <span class="compliments-lbl">With love and compliments from</span>
-      <b>Alice</b>, <b>Bob</b> &amp; <b>Charlie</b>
+      <b>Alice</b>, <b>Bob</b> & <b>Charlie</b>
     </div>
   </div>
 </section>
@@ -962,7 +903,7 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
     <div class="fbl-divider"></div>
 
     <div class="fbl-caption">Barakallahu Lakuma</div>
-    <div class="fbl-sub">John &amp; Jane</div>
+    <div class="fbl-sub">John & Jane</div>
 
     <div class="fbl-divider"></div>
     <p class="fbl-arabic" lang="ar">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
@@ -977,14 +918,14 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
 <!-- FOOTER -->
 <footer>
   <div class="ft-left">
-    With love &amp; blessings<br>
+    With love & blessings<br>
     14 February 2027<br>
     New York
   </div>
-  <div class="ft-center">John &amp; Jane</div>
+  <div class="ft-center">John & Jane</div>
   <div class="ft-right">
     The Grand Palace<br>
-    City Center &middot; New York
+    City Center & New York
   </div>
 
   <div class="foot-card-row">
@@ -999,8 +940,8 @@ body.pdf-capturing .reveal{opacity:1!important;transform:none!important}
 var HERO_VIDEO_PATH  = "john-jane-2/hero-video-url";
 var COUPLE_LABEL     = "John & Jane";
 
-var DEFAULT_COVER = "https://imagedelivery.net/pXU-KzWtO2cgM-XrR20TQg/9aa4c918-902d-4d87-bcda-abdbeddd0a00/public";
-var DEFAULT_FILM  = "https://pub-bc01cea1ca914ad8aba6c7541c55c7fb.r2.dev/digiwed-invitations-john-jane-2-video/hero-clouds-sound.mp4";   /* h264 + the clip's ORIGINAL aac track, stream-copied */
+var DEFAULT_COVER = "./images/gate.avif";
+var DEFAULT_FILM  = "./images/hero-clouds-sound.mp4";   /* h264 + the clip's ORIGINAL aac track, stream-copied */
 
 var VENUE_QUERY = "The Grand Palace City Center New York New York";
 var WEDDING_UTC = "2027-02-14T12:30:00Z";           /* Sat 14 Feb 2027, 6:00 PM IST */
