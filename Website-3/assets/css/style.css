@@ -1,0 +1,43 @@
+﻿/* Custom Cursor & Selection */
+::selection {
+  background: #d4af37;
+  color: #0f1115;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #0f1115;
+}
+
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #d4af37;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Base resets for animations */
+.hero-title, .hero-date, .hero-loc, .hero-amp {
+  transform: translateY(100%);
+}
