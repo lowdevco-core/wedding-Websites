@@ -38,11 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const navWrap = document.querySelector('.nav-wrap');
   window.addEventListener('scroll', () => {
     if (window.scrollY > window.innerHeight * 0.8) {
-      navWrap.style.opacity = '1';
-      navWrap.style.pointerEvents = 'auto';
+      navWrap.classList.add('is-visible');
     } else {
-      navWrap.style.opacity = '0';
-      navWrap.style.pointerEvents = 'none';
+      navWrap.classList.remove('is-visible');
     }
   });
 
@@ -113,3 +111,4 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 });
+

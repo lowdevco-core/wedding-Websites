@@ -41,3 +41,11 @@ html, body {
 .hero-title, .hero-date, .hero-loc, .hero-amp {
   transform: translateY(100%);
 }
+
+/* Navbar scrolled state */
+.nav-wrap.is-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  background-color: #0f1115 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
