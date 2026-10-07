@@ -1,0 +1,56 @@
+/* Custom styles. Layout and colour live in Tailwind classes in index.html. */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Page is locked until the invitation is opened */
+body.is-locked {
+  overflow: hidden;
+}
+
+/* Soft cross pattern behind the ivory background */
+.bg-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B38B3F' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Line-drawn cross (stroke is animated by GSAP) */
+.cross path,
+.cross circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+/* Falling petal */
+.petal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50% 0 50% 0;
+  background: #fffaf0;
+  box-shadow:
+    inset 0 0 4px rgba(179, 139, 63, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+:focus-visible {
+  outline: 2px solid #b38b3f;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .petal {
+    display: none;
+  }
+}

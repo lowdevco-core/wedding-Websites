@@ -1,574 +1,368 @@
 ﻿<!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101D33" />
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="description"
+      content="Joel and Anna invite you to celebrate their Holy Matrimony on 24 November 2027 in Kerala."
     />
-    <title>Rahul & Anjali – Kerala Wedding</title>
+    <title>Joel & Anna | Holy Matrimony, 24 November 2027</title>
 
+    <!-- Custom fonts: Pinyon Script (names), Cormorant Garamond (headings), Jost (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Alex+Brush&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/main.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              cream: "#FAF6F0",
-              green: "#1A362D",
-              gold: "#D4AF37",
-              "gold-light": "#F1E2A4",
-              dark: "#2A2A2A",
-              text: "#4A4A4A",
+              ivory: "#FDFBF7",
+              ink: "#2C3A31",
+              gold: "#C2A878",
+              "gold-soft": "#DCD3C6",
+              wine: "#6B1F2E",
             },
             fontFamily: {
-              playfair: ['"Playfair Display"', "serif"],
-              lato: ['"Lato"', "sans-serif"],
-            },
-            animation: {
-              "fade-in": "fadeIn 1.5s ease-out forwards",
-              "fade-up": "fadeUp 1s ease-out forwards",
-              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            },
-            keyframes: {
-              fadeIn: {
-                "0%": { opacity: "0" },
-                "100%": { opacity: "1" },
-              },
-              fadeUp: {
-                "0%": { opacity: "0", transform: "translateY(20px)" },
-                "100%": { opacity: "1", transform: "translateY(0)" },
-              },
+              script: ['"Alex Brush"', "cursive"],
+              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ["Jost", "system-ui", "sans-serif"],
             },
           },
         },
       };
     </script>
-    <style>
-      /* Disable Scrollbar */
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      html,
-      body {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      /* Gate Transition */
-      .gate-leave {
-        opacity: 0;
-        transform: scale(1.05);
-        pointer-events: none;
-      }
-
-      /* Reveal on scroll */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s ease-out;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Subtle background texture */
-      .bg-texture {
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      }
-
-      /* Petals Animation */
-      .petal {
-        position: absolute;
-        top: -10%;
-        width: 12px;
-        height: 12px;
-        background: #fff;
-        border-radius: 50% 0 50% 0;
-        box-shadow:
-          inset 0 0 4px rgba(102, 92, 3, 0.473),
-          0 2px 4px rgba(0, 0, 0, 0.05);
-        animation: fall linear infinite;
-        z-index: 50;
-        pointer-events: none;
-      }
-      @keyframes fall {
-        0% {
-          transform: translateY(-10vh) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(110vh) rotate(720deg);
-          opacity: 0;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
-  <body class="bg-cream text-text font-lato overflow-x-hidden bg-texture">
+
+  <body
+    class="is-locked bg-ivory bg-texture font-sans font-light text-ink/80 antialiased"
+  >
+    <!-- Falling petals (animated in script.js) -->
+    <div
+      id="petals"
+      class="pointer-events-none fixed inset-0 z-[110]"
+      aria-hidden="true"
+    ></div>
+
     <!-- NAVBAR -->
     <nav
       id="navbar"
-      class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center transition-all duration-500 opacity-0 pointer-events-none"
+      class="invisible fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-ink/90 px-6 py-3 opacity-0 shadow-lg backdrop-blur-md"
     >
-      <div class="font-playfair italic text-2xl text-gold drop-shadow-md">
-        R & A
-      </div>
-      <div class="flex gap-6">
-        <a
-          href="#celebration"
-          class="text-xs uppercase tracking-widest text-white hover:text-gold transition duration-300"
-          >Events</a
-        >
-        <a
-          href="#family"
-          class="text-xs uppercase tracking-widest text-white hover:text-gold transition duration-300"
-          >Family</a
-        >
+      <a href="#hero" class="font-script text-3xl text-gold-soft">J & A</a>
+      <div class="flex gap-6 font-serif text-lg italic text-ivory">
+        <a href="#events" class="transition hover:text-gold-soft">Events</a>
+        <a href="#family" class="transition hover:text-gold-soft">Family</a>
       </div>
     </nav>
 
-    <!-- GATE (OPENING SCREEN) -->
-    <div
-      id="gate"
-      class="fixed inset-0 z-[100] bg-cream flex flex-col items-center justify-center transition-all duration-[1500ms] ease-in-out overflow-hidden"
-    >
-      <!-- Background Image -->
-      <div class="absolute inset-0 w-full h-full">
-        <img
-          src="assets/media/kerala-couple.jpg"
-          class="w-full h-full object-cover scale-105 animate-[pulse-slow_6s_ease-in-out_infinite] opacity-80"
-          alt="Couple"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-gold/10 via-cream/50 to-cream/60"
-        ></div>
+    <!-- GATE: two doors that swing open -->
+    <div id="gate" class="fixed inset-0 z-[100] overflow-hidden bg-ink">
+      <div
+        data-door="left"
+        class="absolute inset-y-0 left-0 w-1/2 overflow-hidden"
+      >
+        <picture class="absolute inset-y-0 left-0 block h-full w-screen">
+          <source srcset="assets/media/gate-cover.avif" type="image/avif" />
+          <img
+            src="assets/media/kerala-couple.jpg"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </picture>
       </div>
-      <div id="petals-container"></div>
+      <div
+        data-door="right"
+        class="absolute inset-y-0 right-0 w-1/2 overflow-hidden"
+      >
+        <picture class="absolute inset-y-0 right-0 block h-full w-screen">
+          <source srcset="assets/media/gate-cover.avif" type="image/avif" />
+          <img
+            src="assets/media/kerala-couple.jpg"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </picture>
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink/80"
+      ></div>
 
       <div
-        class="relative z-10 flex flex-col items-center text-center px-4 animate-fade-in"
+        id="gate-content"
+        class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-ivory"
       >
-        <div
-          class="w-16 h-16 mb-8 border border-gold bg-cream/50 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center"
+        <svg
+          class="cross mb-6 h-16 w-12 text-gold-soft"
+          viewBox="0 0 40 60"
+          aria-hidden="true"
         >
-          <span class="font-playfair italic text-2xl text-green">R&A</span>
-        </div>
-        <h1
-          class="font-playfair text-5xl md:text-7xl text-green mb-4 drop-shadow-md flex flex-col items-center gap-2"
-        >
-          <span>Rahul</span>
-          <span class="text-4xl md:text-6xl italic text-gold leading-none"
-            >&</span
-          >
-          <span>Anjali</span>
-        </h1>
-        <div class="w-24 h-[1px] bg-gold mb-6 opacity-60"></div>
-        <p
-          class="text-[10px] md:text-sm tracking-[0.3em] font-bold uppercase text-green mb-12 drop-shadow-sm"
-        >
-          Sunday, 24 November 2027
+          <path class="draw" d="M20 4v52M8 20h24" />
+          <circle class="draw" cx="20" cy="20" r="5" />
+        </svg>
+        <p class="font-serif text-xl italic text-gold-soft md:text-2xl">
+          Together with their families
         </p>
-
-        <button
-          onclick="openInvite()"
-          class="group relative px-8 py-4 bg-green text-white text-xs font-bold tracking-[0.2em] uppercase overflow-hidden rounded-full shadow-[0_10px_20px_rgba(26,54,45,0.3)] transition-transform active:scale-95"
+        <h1
+          class="my-4 font-script text-7xl leading-[0.8] drop-shadow-lg md:text-[8rem] leading-[0.8]"
         >
-          <span class="relative z-10">Open Invitation</span>
-          <div
-            class="absolute inset-0 bg-gold opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-          ></div>
-        </button>
+          Joel <span class="text-gold-soft">&</span> Anna
+        </h1>
+        <p class="mb-10 font-serif text-xl md:text-2xl">
+          Wednesday, 24 November 2027
+        </p>
+        <button id="open-btn" type="button" class="relative z-[100] mt-10 rounded-full border border-gold bg-ink px-10 py-4 font-serif text-lg tracking-widest uppercase text-ivory hover:bg-gold hover:text-ink shadow-lg" style="opacity: 1 !important; visibility: visible !important; transform: none !important;">
+            Open the invitation
+          </button>
       </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main
-      id="main"
-      class="opacity-0 transition-opacity duration-1000 ease-in-out"
-    >
-      <!-- HERO SECTION -->
+    <main id="main">
+      <!-- HERO -->
       <section
-        class="relative min-h-screen flex items-center justify-center overflow-hidden"
+        id="hero"
+        class="relative flex min-h-screen items-center justify-center overflow-hidden text-center text-ivory"
       >
-        <div class="absolute inset-0 w-full h-full">
-          <div class="relative w-full h-full overflow-hidden">
-            <video
-              id="heroVideo"
-              playsinline
-              loop
-              muted
-              poster="assets/media/kerala-couple.jpg"
-              class="absolute inset-0 w-full h-full object-cover scale-105"
-            >
-              <source src="assets/media/hero-video.mp4" type="video/mp4" />
-            </video>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-green via-green/40 to-transparent opacity-90"
-            ></div>
-          </div>
-        </div>
+        <video
+          id="hero-video"
+          class="absolute -top-[20%] h-[130%] w-full object-cover"
+          poster="assets/media/kerala-couple.jpg"
+          playsinline
+          loop
+          muted
+        >
+          <source src="assets/media/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/20"
+        ></div>
 
-        <div class="relative z-10 text-center text-white px-6 mt-32 md:mt-48">
+        <div class="relative z-10 mt-24 px-6">
           <p
-            class="text-xs md:text-sm tracking-[0.4em] text-gold uppercase mb-4 drop-shadow-md"
+            data-hero="pre"
+            class="font-serif text-xl italic text-gold-soft md:text-3xl"
           >
-            We are getting married
+            With joy in our hearts, we are getting married
           </p>
           <h2
-            class="font-playfair text-6xl md:text-8xl mb-6 drop-shadow-xl flex flex-col items-center gap-2"
+            class="my-4 flex flex-col items-center font-script leading-[1.1] drop-shadow-xl"
+            aria-label="Joel and Anna"
           >
-            <span>Rahul</span>
-            <span class="text-5xl md:text-7xl italic text-gold leading-none"
+            <span class="hero-name text-8xl md:text-[10rem]">Joel</span>
+            <span class="hero-name text-6xl text-gold-soft md:text-8xl"
               >&</span
             >
-            <span>Anjali</span>
+            <span class="hero-name text-8xl md:text-[10rem]">Anna</span>
           </h2>
-          <p class="font-lato text-sm tracking-widest uppercase">
+          <p data-hero="post" class="font-serif text-2xl md:text-3xl">
+            Wednesday, 24 November 2027
+          </p>
+          <p
+            data-hero="post"
+            class="mt-2 text-sm tracking-widest text-ivory/80"
+          >
             Kerala, India
           </p>
         </div>
       </section>
 
-      <!-- VERSE SECTION -->
-      <section class="py-24 px-6 text-center max-w-3xl mx-auto bg-[#1A362D]">
-        <div class="reveal">
+      <!-- BIBLE VERSE -->
+      <section id="verse" class="bg-ink px-6 py-28 text-center text-ivory">
+        <div class="mx-auto max-w-2xl">
           <svg
-            class="w-32 h-8 mx-auto text-gold mb-8 opacity-80"
-            viewBox="0 0 100 20"
-            fill="currentColor"
+            class="cross mx-auto mb-10 h-14 w-10 text-gold"
+            viewBox="0 0 40 60"
+            aria-hidden="true"
           >
-            <path
-              d="M50 20c-5-5-15-5-20-5-10 0-25 2-30 2v-2c5 0 20-2 30-2 5 0 15 0 20-5 5 5 15 5 20 5 10 0 25 2 30 2v2c-5 0-20-2-30-2-5 0-15 0-20 5z"
-            />
-            <circle cx="50" cy="10" r="3" />
-            <circle cx="20" cy="10" r="1.5" opacity="0.6" />
-            <circle cx="80" cy="10" r="1.5" opacity="0.6" />
+            <path class="draw" d="M20 4v52M8 20h24" />
+            <circle class="draw" cx="20" cy="20" r="5" />
           </svg>
-          <p
-            class="font-playfair italic text-xl md:text-2xl text-[#FAF6F0] leading-relaxed mb-8"
+          <blockquote
+            class="font-serif text-2xl italic leading-relaxed md:text-4xl md:leading-relaxed"
           >
-            "Two souls with but a single thought,<br />Two hearts that beat as
-            one."
-          </p>
-          <p class="text-xs tracking-[0.2em] uppercase text-gold">
-            With Love & Prayers
+            <span class="verse-line block">Love is patient and is kind.</span>
+            <span class="verse-line block"
+              >It bears all things, believes all things,</span
+            >
+            <span class="verse-line block"
+              >hopes all things, endures all things.</span
+            >
+          </blockquote>
+          <p class="verse-line mt-8 font-serif text-lg text-gold-soft">
+            1 Corinthians 13:4–7
           </p>
         </div>
       </section>
 
-      <!-- EVENTS TIMELINE -->
-      <section id="celebration" class="py-32 px-6 max-w-5xl mx-auto">
-        <div class="text-center mb-5 reveal">
-          <h3 class="font-playfair text-4xl md:text-5xl text-green mb-4">
-            The Festivities
+      <!-- EVENTS -->
+      <section id="events" class="mx-auto max-w-5xl px-6 py-28">
+        <div class="mb-20 text-center">
+          <h3 class="font-script text-6xl text-ink md:text-7xl">
+            The Celebration
           </h3>
-          <p class="text-xs uppercase tracking-widest text-text">
-            Join us in celebrating our union
+          <p class="mt-3 font-serif text-xl italic">
+            Wednesday, 24 November 2027. We would be honoured by your presence.
           </p>
         </div>
 
-        <div class="text-center">
-          <p class="mb-2 text-lg font-bold tracking-widest text-gold uppercase">
-            Wed, 24 Nov 2027 · 10:30 AM
-          </p>
-        </div>
-
-        <div class="relative wrap overflow-hidden p-4 md:p-10 h-full">
-          <!-- Event card -->
+        <div id="timeline" class="relative">
           <div
-            class="mb-12 flex justify-between items-center w-full right-timeline flex-col md:flex-row reveal"
-          >
-            <div class="order-1 md:w-5/12"></div>
-            <div
-              class="z-20 flex items-center order-1 bg-gold shadow-xl w-6 h-6 rounded-full hidden md:block"
-            ></div>
-            <div
-              class="order-1 bg-green text-cream rounded-2xl shadow-xl w-full md:w-5/12 px-8 py-10 text-center md:text-right relative overflow-hidden"
-            >
-              <div class="absolute inset-0 bg-texture opacity-10"></div>
-              <div class="relative z-10">
-                <h4 class="mb-4 font-playfair text-3xl text-white">
-                  Traditional Wedding
-                </h4>
-                <p class="text-sm leading-relaxed text-cream/80 mb-6">
-                  The sacred Muhurtham where two souls unite in the traditional
-                  Kerala style.<br /><br /><span
-                    class="font-bold text-gold-light"
-                    >The Heritage Temple, Kerala</span
-                  >
-                </p>
-                <a
-                  href="#"
-                  class="inline-block px-6 py-2 bg-gold text-dark border border-gold text-[10px] uppercase tracking-widest rounded-full hover:bg-transparent hover:text-gold transition duration-300"
-                  >View Map</a
-                >
-              </div>
-            </div>
-          </div>
+            id="timeline-line"
+            class="absolute left-3 top-0 h-full w-px bg-gold md:left-1/2"
+          ></div>
 
+          <article
+            data-side="left"
+            class="event relative mb-16 pl-12 md:mb-24 md:w-1/2 md:pl-0 md:pr-16 md:text-right"
+          >
+            <span
+              class="absolute left-1.5 top-3 h-3 w-3 rounded-full bg-gold md:-right-1.5 md:left-auto"
+            ></span>
+            <p class="font-serif text-4xl text-gold">10:30 AM</p>
+            <h4 class="mt-1 font-script text-5xl text-ink">Holy Matrimony</h4>
+            <p class="mt-3 leading-relaxed">
+              The wedding service, where Joel and Anna exchange their vows
+              before God and family.
+            </p>
+            <p class="mt-3 font-serif text-xl font-medium text-ink">
+              St. Thomas Church, Kerala
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=St+Thomas+Church+Kerala"
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-block border border-gold px-6 py-2 font-serif text-lg text-ink transition hover:bg-gold hover:text-ivory"
+              >View map</a
+            >
+          </article>
+
+          <article
+            data-side="right"
+            class="event relative pl-12 md:ml-auto md:w-1/2 md:pl-16"
+          >
+            <span
+              class="absolute left-1.5 top-3 h-3 w-3 rounded-full bg-gold md:-left-1.5"
+            ></span>
+            <p class="font-serif text-4xl text-gold">6:30 PM</p>
+            <h4 class="mt-1 font-script text-5xl text-ink">
+              Wedding Reception
+            </h4>
+            <p class="mt-3 leading-relaxed">
+              An evening of dinner, music and blessings as we celebrate with the
+              people we love.
+            </p>
+            <p class="mt-3 font-serif text-xl font-medium text-ink">
+              Grace Convention Centre, Kerala
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Convention+Centre+Kerala"
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-block border border-gold px-6 py-2 font-serif text-lg text-ink transition hover:bg-gold hover:text-ivory"
+              >View map</a
+            >
+          </article>
         </div>
       </section>
 
       <!-- COUNTDOWN -->
-      <section class="py-20 bg-green text-cream relative overflow-hidden">
-        <div class="absolute inset-0 bg-texture opacity-10"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-5 text-center reveal">
-          <h3 class="font-playfair text-3xl md:text-4xl mb-6">
-            Awaiting the Beautiful Day
-          </h3>
-          <div
-            class="flex justify-center items-center gap-3 md:gap-8 max-w-lg mx-auto"
-          >
-            <div class="flex flex-col items-center">
-              <span
-                id="cdDays"
-                class="font-playfair text-4xl md:text-6xl text-gold-light"
-                >00</span
-              >
-              <span
-                class="text-[9px] md:text-xs uppercase tracking-[0.2em] opacity-80 mt-2"
-                >Days</span
-              >
-            </div>
-            <span class="text-3xl font-playfair text-gold/40 pb-4">:</span>
-            <div class="flex flex-col items-center">
-              <span
-                id="cdHours"
-                class="font-playfair text-4xl md:text-6xl text-gold-light"
-                >00</span
-              >
-              <span
-                class="text-[9px] md:text-xs uppercase tracking-[0.2em] opacity-80 mt-2"
-                >Hours</span
-              >
-            </div>
-            <span class="text-3xl font-playfair text-gold/40 pb-4">:</span>
-            <div class="flex flex-col items-center">
-              <span
-                id="cdMins"
-                class="font-playfair text-4xl md:text-6xl text-gold-light"
-                >00</span
-              >
-              <span
-                class="text-[9px] md:text-xs uppercase tracking-[0.2em] opacity-80 mt-2"
-                >Mins</span
-              >
-            </div>
-            <span class="text-3xl font-playfair text-gold/40 pb-4">:</span>
-            <div class="flex flex-col items-center">
-              <span
-                id="cdSecs"
-                class="font-playfair text-4xl md:text-6xl text-gold-light"
-                >00</span
-              >
-              <span
-                class="text-[9px] md:text-xs uppercase tracking-[0.2em] opacity-80 mt-2"
-                >Secs</span
-              >
-            </div>
+      <section id="countdown" class="bg-ink px-6 py-24 text-center text-ivory">
+        <h3
+          class="countdown-item font-script text-6xl text-gold-soft md:text-7xl"
+        >
+          Counting down to our day
+        </h3>
+        <div class="mx-auto mt-12 flex max-w-xl justify-center gap-6 md:gap-12">
+          <div class="countdown-item">
+            <span id="cd-days" class="block font-serif text-5xl md:text-7xl"
+              >00</span
+            >
+            <span class="font-serif text-lg italic text-gold-soft">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span id="cd-hours" class="block font-serif text-5xl md:text-7xl"
+              >00</span
+            >
+            <span class="font-serif text-lg italic text-gold-soft">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span id="cd-mins" class="block font-serif text-5xl md:text-7xl"
+              >00</span
+            >
+            <span class="font-serif text-lg italic text-gold-soft"
+              >Minutes</span
+            >
+          </div>
+          <div class="countdown-item">
+            <span id="cd-secs" class="block font-serif text-5xl md:text-7xl"
+              >00</span
+            >
+            <span class="font-serif text-lg italic text-gold-soft"
+              >Seconds</span
+            >
           </div>
         </div>
       </section>
 
       <!-- FAMILY -->
-      <section id="family" class="py-24 bg-white border-t border-cream">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-          <h3
-            class="font-playfair text-3xl md:text-4xl text-green mb-16 reveal"
-          >
-            With the blessings of
-            <span class="italic text-gold">Our Families</span>
-          </h3>
-
+      <section id="family" class="px-6 py-28 text-center">
+        <h3 class="mb-16 font-script text-6xl text-ink md:text-7xl">
+          With the blessings of our families
+        </h3>
+        <div
+          class="mx-auto flex max-w-4xl flex-col items-center gap-12 md:flex-row md:items-stretch md:justify-center md:gap-0"
+        >
+          <div class="family-col flex-1 md:px-10">
+            <p class="font-serif text-xl italic text-gold">Son of</p>
+            <h4 class="my-2 font-script text-6xl text-ink">Joel</h4>
+            <p class="font-serif text-xl">
+              Mr. Thomas Mathew<br />& Mrs. Mary Thomas
+            </p>
+          </div>
           <div
-            class="flex flex-col md:flex-row justify-center gap-10 md:gap-20"
-          >
-            <div class="reveal delay-100 flex-1">
-              <p class="text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
-                Son of
-              </p>
-              <h4 class="font-playfair text-3xl text-green mb-4">Rahul</h4>
-              <div class="w-10 h-[1px] bg-gold/50 mx-auto mb-4"></div>
-              <p class="text-sm text-text">
-                Mr. Rajesh Menon<br />& Mrs. Sunita Menon
-              </p>
-            </div>
-
-            <div class="hidden md:flex flex-col items-center justify-center">
-              <div class="w-[1px] h-20 bg-gold/30"></div>
-            </div>
-
-            <div class="reveal delay-200 flex-1">
-              <p class="text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
-                Daughter of
-              </p>
-              <h4 class="font-playfair text-3xl text-green mb-4">Anjali</h4>
-              <div class="w-10 h-[1px] bg-gold/50 mx-auto mb-4"></div>
-              <p class="text-sm text-text">
-                Mr. Vikram Nair<br />& Mrs. Meena Nair
-              </p>
-            </div>
+            class="family-divider h-px w-24 bg-gold/60 md:h-auto md:w-px"
+          ></div>
+          <div class="family-col flex-1 md:px-10">
+            <p class="font-serif text-xl italic text-gold">Daughter of</p>
+            <h4 class="my-2 font-script text-6xl text-ink">Anna</h4>
+            <p class="font-serif text-xl">
+              Mr. George Varghese<br />& Mrs. Susan George
+            </p>
           </div>
         </div>
       </section>
 
       <!-- FOOTER -->
-      <footer class="bg-green text-center py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-texture opacity-10"></div>
-        <div class="relative z-10 reveal">
-          <h2 class="font-playfair text-4xl md:text-5xl text-gold-light mb-4">
-            Rahul & Anjali
+      <footer class="bg-ink px-6 py-24 text-center text-ivory">
+        <svg
+          class="cross mx-auto mb-8 h-14 w-10 text-gold"
+          viewBox="0 0 40 60"
+          aria-hidden="true"
+        >
+          <path class="draw" d="M20 4v52M8 20h24" />
+          <circle class="draw" cx="20" cy="20" r="5" />
+        </svg>
+        <div class="footer-text">
+          <h2 class="font-script text-6xl text-gold-soft md:text-8xl">
+            Joel & Anna
           </h2>
-          <p class="text-xs uppercase tracking-widest text-cream/70">
-            We seek your presence and blessings
+          <p class="mt-4 font-serif text-xl italic text-ivory/80">
+            We seek your presence and your prayers.
           </p>
         </div>
       </footer>
     </main>
 
-    <script>
-      /* CREATE PETALS */
-      function createPetals() {
-        const container = document.getElementById("petals-container");
-        if (!container) return;
-        for (let i = 0; i < 25; i++) {
-          let petal = document.createElement("div");
-          petal.className = "petal";
-          petal.style.left = Math.random() * 100 + "%";
-          petal.style.animationDuration = Math.random() * 6 + 5 + "s";
-          petal.style.animationDelay = Math.random() * 5 + "s";
-          let scale = Math.random() * 0.6 + 0.6;
-          petal.style.transform = "scale(" + scale + ")";
-          container.appendChild(petal);
-        }
-      }
-      document.addEventListener("DOMContentLoaded", createPetals);
-
-      /* OPEN INVITATION LOGIC */
-      function openInvite() {
-        const gate = document.getElementById("gate");
-        const main = document.getElementById("main");
-        const nav = document.getElementById("navbar");
-        const video = document.getElementById("heroVideo");
-
-        // Gate leaves elegantly
-        gate.classList.add("gate-leave");
-
-        // Main content appears
-        main.classList.remove("opacity-0");
-
-        // Play video
-        if (video) {
-          video.play().catch((e) => console.log("Video autoplay blocked:", e));
-        }
-
-        // Initial reveal sweep
-        setTimeout(sweepReveals, 500);
-
-        // Setup Scroll Listener
-        window.addEventListener(
-          "scroll",
-          () => {
-            sweepReveals();
-
-            // Navbar logic
-            if (window.scrollY > window.innerHeight * 0.8) {
-              nav.classList.remove("opacity-0", "pointer-events-none");
-              nav.classList.add(
-                "opacity-100",
-                "pointer-events-auto",
-                "bg-green/95",
-                "backdrop-blur-md",
-                "shadow-lg",
-              );
-            } else {
-              nav.classList.add("opacity-0", "pointer-events-none");
-              nav.classList.remove(
-                "opacity-100",
-                "pointer-events-auto",
-                "bg-green/95",
-                "backdrop-blur-md",
-                "shadow-lg",
-              );
-            }
-          },
-          { passive: true },
-        );
-      }
-
-      /* SCROLL REVEALS */
-      function sweepReveals() {
-        const reveals = document.querySelectorAll(".reveal:not(.visible)");
-        for (let i = 0; i < reveals.length; i++) {
-          const windowHeight = window.innerHeight;
-          const elementTop = reveals[i].getBoundingClientRect().top;
-          const elementVisible = 50;
-
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("visible");
-          }
-        }
-      }
-
-      /* COUNTDOWN TIMER */
-      function initCountdown() {
-        const countTo = new Date("Nov 24, 2027 10:30:00").getTime();
-
-        const timer = setInterval(() => {
-          const now = new Date().getTime();
-          const diff = countTo - now;
-
-          if (diff < 0) {
-            clearInterval(timer);
-            return;
-          }
-
-          document.getElementById("cdDays").innerText = String(
-            Math.floor(diff / (1000 * 60 * 60 * 24)),
-          ).padStart(2, "0");
-          document.getElementById("cdHours").innerText = String(
-            Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          ).padStart(2, "0");
-          document.getElementById("cdMins").innerText = String(
-            Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-          ).padStart(2, "0");
-          document.getElementById("cdSecs").innerText = String(
-            Math.floor((diff % (1000 * 60)) / 1000),
-          ).padStart(2, "0");
-        }, 1000);
-      }
-
-      document.addEventListener("DOMContentLoaded", initCountdown);
-
-
-      // Festive Section 
-
-      const card = document.getElementById("card");
-
-     card.addEventListener("mouseenter", () => {
-     card.innerHTML = `
-    <div>
-      <h4>Traditional Wedding</h4>
-      <p>The sacred Muhurtham where two souls unite...</p>
-      <a href="#">View Map</a>
-    </div>
-  `;
-      });
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
